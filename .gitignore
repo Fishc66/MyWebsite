@@ -1,0 +1,39 @@
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 依赖包目录
+node_modules/
+
+# Hexo 自动生成的缓存和静态文件
+db.json
+public/
+
+# Hexo 部署时生成的目录 (如 hexo-deployer-git)
+.deploy*/
+.deploy_git/
+
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# 编辑器/IDE 配置目录
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 环境变量/配置文件（如果你用了相关插件保护敏感信息）
+.env
+.env.*
