@@ -1,0 +1,239 @@
+# ParticleX 主题配置
+# https://github.com/theme-particlex/hexo-theme-particlex
+
+# 头像图片
+avatar: /images/avatar.gif
+
+# 首页背景图片（支持多张图片随机显示）
+background:
+  - /images/bg-main.jpg
+
+# 页面加载时的动画图片
+loading: /images/loading.gif
+
+# 分类与标签样式系统 (Taxonomy Style System)
+# 通过配置驱动分类和标签的颜色。
+# 分类决定了文章卡片的背景颜色和文本颜色。
+# 每个分类/标签都可以定义自己的调色板和文本特效（发光轮廓 outline、火花 spark）。
+taxonomy_styles:
+  enable: true
+
+  # 默认调色板（当没有匹配的分类/标签时使用）
+  defaults:
+    post:
+      bg: "#EAF5FF"      # 柔和浅蓝色卡片背景
+      text: "#27445E"    # 低饱和深蓝灰文字
+    category:
+      bg: "#CFE7FA"      # 浅蓝分类按钮背景
+      text: "#28506E"    # 稳重蓝灰文字
+    tag:
+      bg: "#DDEFFC"
+      text: "#4A6A83"    # 柔和的次要文字
+    effects:
+      outline:
+        enable: false    # 关闭文字描边，避免字体出现黑边
+        color: "#30363D" # 极细的灰色描边
+        width: "1px"
+      spark:
+        enable: false
+        
+  # 各分类独立样式（驱动文章背景/文字颜色 + 分类药丸标签颜色）
+  categories:
+    "思绪漫游": # 原文为 "Tâm trí lang thang"
+      post:
+        bg: "#EDF7FF"
+        text: "#2F526C"
+      category:
+        bg: "#C8E4F7"
+        text: "#294E68"
+      tag_default:
+        bg: "#DDF0FC"
+        text: "#46687F"
+      effects:
+        outline:
+          enable: false
+          color: "#CFDF8D66"
+          width: "1px"
+        spark:
+          enable: false
+    "童话梦境": # 原文为 "Giấc mơ thần tiên"
+      post:
+        bg: "#F3FAFF"
+        text: "#31516A"
+      category:
+        bg: "#D7EAF8"
+        text: "#2D506B"
+      tag_default:
+        bg: "#E4F2FC"
+        text: "#4C6E84"
+      effects:
+        outline:
+          enable: false
+        spark:
+          enable: false
+
+  # 各标签覆盖设置（为特定标签覆盖上方设定的 tag_default 默认值）
+  tags:
+    "思绪漫游": # 原文为 "Tâm trí lang thang"
+      bg: "#D4EAF8"
+      text: "#2D526C"
+    "童话梦境": # 原文为 "Giấc mơ thần tiên"
+      bg: "#E0F1FC"
+      text: "#365C76"
+
+# ParticleX 主题图标采用 Font Awesome 6
+# https://fontawesome.com
+
+# 主菜单导航
+menu:
+  首页:
+    name: house         # 首页的房子图标
+    theme: solid
+    link: /
+  归档:
+    name: box-archive   # 归档的盒子图标
+    theme: solid
+    link: /archives
+  分类:
+    name: folder-open   # 分类的文件夹图标 (比默认的 bookmark 更直观)
+    theme: solid
+    link: /categories
+  关于:
+    name: id-card # 一个有趣的宇航员图标，代表“关于我”(你也可以换回默认的 id-card)
+    theme: solid
+    link: /about
+
+# 侧边栏个人信息卡片
+card:
+  enable: true
+  description: |
+   一个在光阴长河捉鱼的人
+  iconLinks:
+  friendLinks: # 友情链接（建议把这里的 Lostar 替换成你朋友的博客）
+    Lostar: https://lostar.thatnghiep.dev
+
+# 页脚信息
+footer:
+  since: 2026 # 建站年份
+  # 版权信息（如果留空，将自动使用网站标题/作者名）
+  copyright:
+    name: thatnghiep.dev # 建议改成你的网站名或笔名
+    handle: dinhkarate # 建议改成你的社交平台账号名
+  # 自定义服务器域名 ICP 备案信息（国内建站需要）
+  ICP:
+    enable: false
+    code:
+    link:
+
+# Polyfill 兼容库（解决旧版浏览器的兼容性）
+# https://polyfill.io
+polyfill:
+  enable: true
+  features:
+    - default
+
+# Highlight.js 代码高亮
+# https://highlightjs.org
+highlight:
+  enable: true
+  style: github
+
+# KaTeX 数学公式渲染
+math:
+  enable: false
+
+# 图片预览（点击文章图片放大查看）
+preview:
+  enable: true
+
+# 星空背景特效（闪烁的星星 + 划过的流星）
+stars:
+  enable: true
+
+# 文章加密功能
+crypto:
+  enable: false
+
+# 本地搜索功能
+search:
+  enable: false
+
+# Giscus 评论系统 (基于 GitHub Discussions)
+# https://github.com/giscus/giscus
+giscus:
+  enable: false
+  src: https://giscus.app/client.js
+  repo:
+  repoID:
+  category:
+  categoryID:
+  mapping: pathname
+  strict: 0
+  reactionsEnabled: 1
+  emitMetadata: 0
+  inputPosition: bottom
+  theme: preferred_color_scheme
+  lang:
+
+# 国际化 (i18n)
+# 在这里可以覆盖主题中显示的任何固定文本
+i18n:
+  read_more: 阅读更多
+  loading_title: LOADING
+  loading_message: 请稍候...
+  crypto_placeholder: 此文章受密码保护，请输入密码。
+
+# Gitalk 评论系统 (基于 GitHub Issues)
+# https://github.com/gitalk/gitalk
+gitalk:
+  enable: false
+  clientID: # 你的 GitHub OAuth App ClientID
+  clientSecret: # 你的 GitHub OAuth App ClientSecret
+  repo: # 存储评论的 GitHub 仓库名称
+  owner: # GitHub 仓库所有者用户名
+  admin: # 仓库所有者及协作者（只有这些人可以初始化 GitHub issues）
+  language: # 语言设定，当前可用: en, zh-CN, zh-TW, es-ES, fr, ru, de, pl, ko
+  proxy: # CORS 跨域代理地址
+
+# Waline 评论系统
+# https://github.com/walinejs/waline
+waline:
+  enable: false
+  serverURL: # Waline 服务端地址 URL，需要替换为你自己部署的链接
+  locale: # 本地化语言配置: https://waline.js.org/guide/client/i18n.html#locale-option
+  commentCount: true # 如果为 false，评论数量将只显示在文章页内，不显示在首页卡片上
+  pageview: false # 页面浏览量统计。注意：不能同时开启 `waline.pageview` 和 `leancloud_visitors`
+  emoji: # 自定义表情包列表
+    - https://unpkg.com/@waline/emojis@1.2.0/weibo
+    - https://unpkg.com/@waline/emojis@1.2.0/alus
+    - https://unpkg.com/@waline/emojis@1.2.0/bilibili
+    - https://unpkg.com/@waline/emojis@1.2.0/qq
+    - https://unpkg.com/@waline/emojis@1.2.0/tieba
+    - https://unpkg.com/@waline/emojis@1.2.0/tw-emoji
+  meta: # 访客填写的评论信息，有效值为 nick(昵称), mail(邮箱), link(网站链接)
+    - nick
+    - mail
+    - link
+  requiredMeta: # 设置必填的信息字段，例如: [nick] 或 [nick, mail]
+    - nick
+  lang: # 界面语言，可用值: en-US, zh-CN, zh-TW, pt-BR, ru-RU, jp-JP
+  wordLimit: 0 # 评论字数限制，设为 0 表示无限制
+  login: enable # 是否启用登录功能，可选值为 'enable'(启用), 'disable'(禁用), 'force'(强制登录)
+  pageSize: 10 # 每页显示的评论数量
+
+# Twikoo 评论系统
+# https://github.com/imaegoo/twikoo
+twikoo:
+  enable: false
+  envID: # 腾讯云环境 ID
+  region: # 地区
+  path: location.pathname
+  lang:
+
+# SEO 搜索引擎优化设置
+seo:
+  default_image: /images/avatar.gif # 默认分享预览图
+  twitter_site: # Twitter 站点所有者用户名
+  twitter_id: # Twitter ID
+  fb_app_id: # Facebook App ID
+  fb_admins: # Facebook 管理员 ID
