@@ -106,5 +106,5 @@ theme: loststar
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:Fishc66/Fishc66.github.io.git
+  repo: ssh://git@ssh.github.com:443/Fishc66/Fishc66.github.io.git
   branch: main
