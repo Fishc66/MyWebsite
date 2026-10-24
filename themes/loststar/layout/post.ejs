@@ -29,7 +29,14 @@
     const catName = txStyle ? txStyle.category : null;
     const isDiaryPage = catName === 'Diary';
     const displayTitle = isDiaryPage ? date(page.date, "DD/MM/YYYY") : page.title;
+    const isEncrypted = theme.crypto.enable && typeof page.secret !== "undefined";
+    const tocHtml = is_post() && !isEncrypted
+        ? toc(page.content, { min_depth: 2, max_depth: 3, list_number: false })
+        : "";
 %>
+<% if (tocHtml) { %>
+<div class="article-layout">
+<% } %>
 <div class="article<%= fxClasses.length ? ' ' + fxClasses.join(' ') : '' %>" <% if (txStyle) { %>data-category="<%- catName %>" style="<%- allVars %>"<% } %>>
     <div>
         <h1><%= displayTitle %></h1>
@@ -72,7 +79,13 @@
         </span>
         <% } %>
     </div>
-    <% if (theme.crypto.enable && typeof page.secret !== "undefined") { %>
+    <% if (tocHtml) { %>
+    <details class="article-toc article-toc-mobile" v-pre>
+        <summary>文章目录</summary>
+        <nav aria-label="文章目录"><%- tocHtml %></nav>
+    </details>
+    <% } %>
+    <% if (isEncrypted) { %>
     <% const CryptoJS = getCryptoJS(); %>
     <input
         id="crypto"
@@ -115,3 +128,10 @@
     <% } %>
     <% } %>
 </div>
+<% if (tocHtml) { %>
+    <aside class="article-toc article-toc-desktop" v-pre>
+        <div class="article-toc-title">文章目录</div>
+        <nav aria-label="文章目录"><%- tocHtml %></nav>
+    </aside>
+</div>
+<% } %>

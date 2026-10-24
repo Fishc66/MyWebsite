@@ -551,6 +551,103 @@
 .article .content {
   margin: 50px 0;
 }
+.article .content :is(h2, h3) {
+  scroll-margin-top: 80px;
+}
+.article-toc {
+  background: #f2f8fd;
+  border: 1px solid #c8e4f7;
+  border-radius: 12px;
+  color: #28506e;
+  font-size: 14px;
+  padding: 16px;
+}
+.article-toc-title,
+.article-toc summary {
+  font-weight: bold;
+  line-height: 1.7;
+}
+.article-toc summary {
+  cursor: pointer;
+}
+.article-toc nav {
+  margin-top: 10px;
+}
+.article-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.article-toc .toc-child {
+  border-left: 1px solid #c8e4f7;
+  margin-left: 8px;
+  padding-left: 12px;
+}
+.article-toc a {
+  border-radius: 5px;
+  color: inherit;
+  display: block;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  padding: 6px 8px;
+}
+.article-toc a:hover,
+.article-toc a:focus-visible {
+  background: #dfeef9;
+}
+.article-toc-mobile {
+  margin-top: 24px;
+}
+.article-toc-desktop {
+  display: none;
+}
+@media (min-width: 1240px) {
+  .article-layout {
+    --toc-top: 68px;
+    align-items: start;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 260px 900px;
+    margin: 68px auto 0;
+    width: 1184px;
+  }
+  .article-layout .article {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+  .article-toc-mobile {
+    display: none;
+  }
+  .article-toc-desktop {
+    box-sizing: border-box;
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    max-height: calc(100vh - var(--toc-top) - 16px);
+    overflow-y: auto;
+    position: sticky;
+    top: var(--toc-top);
+    transition:
+      top 0.25s ease-out,
+      max-height 0.25s ease-out;
+  }
+  #menu.hidden ~ #main .article-layout {
+    --toc-top: 16px;
+  }
+}
+html[data-color-scheme="dark"] .article-toc {
+  background: #172536;
+  border-color: #36526a;
+  color: #d8e6f2;
+}
+html[data-color-scheme="dark"] .article-toc .toc-child {
+  border-color: #36526a;
+}
+html[data-color-scheme="dark"] .article-toc a:hover,
+html[data-color-scheme="dark"] .article-toc a:focus-visible {
+  background: #20374d;
+}
 .article .info .date {
   color: #5c6b72;
   display: inline-block;
@@ -602,6 +699,12 @@ body::-webkit-scrollbar-track {
   display: block;
   margin: 15px auto;
   max-width: 75%;
+}
+.article .content img:not(.discord-emoji) {
+  cursor: zoom-in;
+  height: auto;
+  max-height: min(65vh, 560px);
+  width: auto;
 }
 .copycode {
   color: #5c6b72;
